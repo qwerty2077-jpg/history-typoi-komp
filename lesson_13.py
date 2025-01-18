@@ -1,3 +1,4 @@
+import logging
 import pdfplumber
 from gtts import gTTS
 
@@ -6,7 +7,7 @@ def pdf_to_text(text_path):
     with pdfplumber.PDF(open(text_path, mode='rb')) as pdf_file:
         pages = pdf_file.pages
         str_text = ''.join([page.extract_text() for page in pages]).replace('\n', " ")
-    print(str_text)
+    logging.info(print(str_text))
     return str_text
 
 
